@@ -1,4 +1,5 @@
 const user__data = document.querySelector("#user__data");
+const view__profiles__ele = document.getElementById("view__profiles__ele");
 
 // users__profile__uri
 const api__users__uri = "https://jsonplaceholder.typicode.com/users";
@@ -14,9 +15,12 @@ xhr.onreadystatechange = function() {
 		const res = JSON.parse(this.response);
 
 		// dom manipulate
-		res.map(user => {
-			user__data.innerHTML += (
-				`<div class="user__card">
+		let isToggled = true;
+		view__profiles__ele.addEventListener("click", function() {
+			if (isToggled) {
+				res.map(user => {
+					user__data.innerHTML += (
+						`<div class="user__card">
 					<h3>${user.name}</h3>
 					<p>Email- ${user.email}</p>
 					<p>Phone- ${user.phone}</p>
@@ -26,9 +30,21 @@ xhr.onreadystatechange = function() {
 						City- ${user.address.city},
 						Zipcode- ${user.address.zipcode}
 					</address>
-				</div>
-				`
-			)
+				</div>`
+					)
+				})
+				this.style.color = "white";
+				this.style.background = "#ff1414";
+				this.textContent = "close";
+				isToggled = false;
+			} else {
+				this.style.color = "white";
+				this.style.background = "black";
+				this.textContent = "view profile";
+				user__data.innerHTML = "";
+				isToggled = true;
+			}
+
 		})
 	}
 }
