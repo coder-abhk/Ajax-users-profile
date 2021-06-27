@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: monospace;
+	background-color: #fcfcfc;
+	overflow-x: hidden;
+}
+
+.head__wrapper {
+	color: #fff;
+	width: 100%;
+	padding: 2rem;
+	background-color: #282828;
+}
+
+h1 {
+	text-align: center;
+}
+
+.content__wrapper {
+	width: 100%;
+	margin: 3rem 0;
+	padding: 1rem;
+}
+
+.user__profile {
+	width: 768px;
+	margin: 0 auto;
+}
+
+.user__card {
+	padding: 1rem;
+	margin: 1.5rem 0;
+	background-color: #fff;
+	border-radius: 3px;
+	box-shadow: 4px 4px 0px #222;
+}
+
+p,
+address {
+	margin-top: .5rem;
+}
+
+@media(max-width: 768px) {
+	.user__profile {
+		width: 480px;
+	}
+}
+
+@media(max-width: 571px) {
+	.user__profile {
+		width: 345px;
+	}
+}
